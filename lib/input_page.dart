@@ -8,6 +8,8 @@ const bottomContainerColour = Color(0xFFF4EEE0);
 const cardColour = Color(0xFF141218);
 
 class InputPage extends StatefulWidget {
+  const InputPage({super.key});
+
   @override
   _InputPageState createState() => _InputPageState();
 }
