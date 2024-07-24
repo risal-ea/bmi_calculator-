@@ -39,55 +39,49 @@ class _InputPageState extends State<InputPage> {
         children: <Widget>[
           Expanded(child: Row(
             children: [
-              Expanded(child: GestureDetector(
-                onTap: (){
+              Expanded(child: ReusableCard(
+                onPress: (){
                   setState(() {
                     selectedGender = Gender.male;
                   });
                 },
-                child: ReusableCard(
-                  cardChild: IconContent(
-                    icon: FontAwesomeIcons.mars, label: "MALE",
-                  ),
-                  colour: selectedGender == Gender.male? cardColour : inactiveCardColour,
+                cardChild: IconContent(
+                  icon: FontAwesomeIcons.mars, label: "MALE",
                 ),
+                colour: selectedGender == Gender.male? cardColour : inactiveCardColour,
               ),),
-              Expanded(child: GestureDetector(
-                onTap: (){
+              Expanded(child: ReusableCard(
+                onPress: (){
                   setState(() {
                     selectedGender = Gender.female;
                   });
                 },
-                child: ReusableCard(
-                  cardChild: IconContent(
-                    icon: FontAwesomeIcons.venus, label: "FEMALE",
-                  ),
-                  colour: selectedGender == Gender.female? cardColour : inactiveCardColour,
+                cardChild: IconContent(
+                  icon: FontAwesomeIcons.venus, label: "FEMALE",
                 ),
+                colour: selectedGender == Gender.female? cardColour : inactiveCardColour,
               ),),
             ],
           )),
            Expanded(child: Row(
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: (){
-                    print("center card is clicked");
-                  },
-                  child: ReusableCard(
-                    cardChild: IconContent(),
-                    colour: cardColour,
-                                ),
+                child: ReusableCard(
+                  onPress: (){},
+                  cardChild: IconContent(),
+                  colour: cardColour,
                 ),),
             ],
           )),
-          const Expanded(child: Row(
+          Expanded(child: Row(
             children: [
               Expanded(child: ReusableCard(
+                onPress: (){},
                 cardChild: IconContent(),
                 colour: cardColour,
               ),),
               Expanded(child: ReusableCard(
+                onPress: (){},
                 cardChild: IconContent(),
                 colour: cardColour,
               ),),
