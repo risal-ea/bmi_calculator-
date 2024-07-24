@@ -22,26 +22,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
 
-  Color maleCardColour = inactiveCardColour;
-  Color femaleCardColour = inactiveCardColour;
-
-  void UpdateColour(Gender selectedGender){
-    if(selectedGender == Gender.male){
-      if(maleCardColour == inactiveCardColour){
-        maleCardColour = cardColour;
-        femaleCardColour = inactiveCardColour;
-      }else{
-        maleCardColour = inactiveCardColour;
-      }
-    }else if(selectedGender == Gender.female){
-      if(femaleCardColour == inactiveCardColour){
-        femaleCardColour = cardColour;
-        maleCardColour = inactiveCardColour;
-      }else{
-        femaleCardColour = inactiveCardColour;
-      }
-    }
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -61,27 +42,27 @@ class _InputPageState extends State<InputPage> {
               Expanded(child: GestureDetector(
                 onTap: (){
                   setState(() {
-                    UpdateColour(Gender.male);
+                    selectedGender = Gender.male;
                   });
                 },
                 child: ReusableCard(
                   cardChild: IconContent(
                     icon: FontAwesomeIcons.mars, label: "MALE",
                   ),
-                  colour: maleCardColour,
+                  colour: selectedGender == Gender.male? cardColour : inactiveCardColour,
                 ),
               ),),
               Expanded(child: GestureDetector(
                 onTap: (){
                   setState(() {
-                    UpdateColour(Gender.female);
+                    selectedGender = Gender.female;
                   });
                 },
                 child: ReusableCard(
                   cardChild: IconContent(
                     icon: FontAwesomeIcons.venus, label: "FEMALE",
                   ),
-                  colour: femaleCardColour,
+                  colour: selectedGender == Gender.female? cardColour : inactiveCardColour,
                 ),
               ),),
             ],
