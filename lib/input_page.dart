@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
@@ -9,6 +7,11 @@ const bottomContainerHeight = 90.0;
 const bottomContainerColour = Color(0xFFF4EEE0);
 const cardColour = Color(0xFF141218);
 const inactiveCardColour = Color(0xFF2D3250);
+
+enum Gender{
+  male,
+  female,
+}
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -22,15 +25,15 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColour = inactiveCardColour;
   Color femaleCardColour = inactiveCardColour;
 
-  void UpdateColour(int gender){
-    if(gender == 1){
+  void UpdateColour(Gender selectedGender){
+    if(selectedGender == Gender.male){
       if(maleCardColour == inactiveCardColour){
         maleCardColour = cardColour;
         femaleCardColour = inactiveCardColour;
       }else{
         maleCardColour = inactiveCardColour;
       }
-    }else{
+    }else if(selectedGender == Gender.female){
       if(femaleCardColour == inactiveCardColour){
         femaleCardColour = cardColour;
         maleCardColour = inactiveCardColour;
@@ -58,7 +61,7 @@ class _InputPageState extends State<InputPage> {
               Expanded(child: GestureDetector(
                 onTap: (){
                   setState(() {
-                    UpdateColour(1);
+                    UpdateColour(Gender.male);
                   });
                 },
                 child: ReusableCard(
@@ -71,7 +74,7 @@ class _InputPageState extends State<InputPage> {
               Expanded(child: GestureDetector(
                 onTap: (){
                   setState(() {
-                    UpdateColour(2);
+                    UpdateColour(Gender.female);
                   });
                 },
                 child: ReusableCard(
