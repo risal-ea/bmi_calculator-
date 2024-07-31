@@ -214,11 +214,22 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          Container(
-            color: kBottomContainerColour,
-            margin: const EdgeInsets.only(top: 10),
-            height: kBottomContainerHeight,
-            width: double.infinity,
+          GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, '/result');
+            },
+            child: Container(
+              alignment: Alignment.center,
+              child: Text("Calculate Your BMI!", style: TextStyle(
+                color: kCardColour,
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+              ),),
+              color: kBottomContainerColour,
+              margin: const EdgeInsets.only(top: 10),
+              height: kBottomContainerHeight,
+              width: double.infinity,
+            ),
           ),
         ],
       ),
