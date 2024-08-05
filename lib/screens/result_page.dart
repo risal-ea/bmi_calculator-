@@ -4,7 +4,15 @@ import 'package:flutter/material.dart';
 import '../components/bottom_container.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  ResultPage({
+    required this.bmiResult,
+    required this.bmiText,
+    required this.interpretation,
+  });
+
+  final String bmiResult;
+  final String bmiText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +42,21 @@ class ResultPage extends StatelessWidget {
             child: ReusableCard(
               colour: kCardColour,
               onPress: () {},
-              cardChild: const Column(
+              cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    "OVERWEIGHT",
+                    bmiText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    "18.0",
+                    bmiResult,
                     style: kBmiTextStyle,
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 20.0, left: 20.0),
                     child: Text(
-                      "Your BMI result is quietly low, you should eat more.",
+                      interpretation,
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
@@ -59,7 +67,9 @@ class ResultPage extends StatelessWidget {
           ),
           BottomContainer(
             bottomContainerText: "RE-CALCULUATE",
-            onPress: (){Navigator.pop(context);},
+            onPress: () {
+              Navigator.pop(context);
+            },
           ),
         ],
       ),

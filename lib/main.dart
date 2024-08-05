@@ -14,11 +14,13 @@ class BMICalculator extends StatelessWidget {
       ),
 
       //Routes
-      initialRoute: '/',
-      routes: {
-        '/' : (context) => InputPage(),
-        '/result' : (context) => ResultPage(),
-      },
+      home: InputPage(),
+
+      // initialRoute: '/',
+      // routes: {
+      //   '/' : (context) => InputPage(),
+      //   '/result' : (context) => ResultPage(),
+      // },
     );
   }
 }
