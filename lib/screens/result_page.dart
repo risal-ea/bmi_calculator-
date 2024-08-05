@@ -5,9 +5,9 @@ import '../components/bottom_container.dart';
 
 class ResultPage extends StatelessWidget {
   ResultPage({
-    required this.bmiResult,
-    required this.bmiText,
-    required this.interpretation,
+    required this.bmiResult,       // Required parameter for the BMI result
+    required this.bmiText,         // Required parameter for the BMI category text
+    required this.interpretation,  // Required parameter for the BMI interpretation
   });
 
   final String bmiResult;
@@ -18,47 +18,46 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI CALCULATOR"),
+        title: Text("BMI CALCULATOR"), // AppBar title
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch, // Stretch children to fill the width
         children: <Widget>[
           Expanded(
             child: Container(
-              alignment: Alignment.bottomLeft,
-              padding: EdgeInsets.all(10.0),
+              alignment: Alignment.bottomLeft, // Align text to the bottom left
+              padding: EdgeInsets.all(10.0), // Add padding around the text
               child: Text(
                 "Your Result!",
                 style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.w800,
+                  fontSize: 40.0, // Font size for the result heading
+                  fontWeight: FontWeight.w800, // Font weight for the result heading
                 ),
               ),
             ),
           ),
           Expanded(
-            flex: 6,
+            flex: 6, // Take up 6 parts of the available space
             child: ReusableCard(
-              colour: kCardColour,
+              colour: kCardColour, // Color for the result card
               onPress: () {},
               cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Space children evenly
                 children: <Widget>[
                   Text(
-                    bmiText.toUpperCase(),
-                    style: kResultTextStyle,
+                    bmiText.toUpperCase(), // Display BMI category text in uppercase
+                    style: kResultTextStyle, // Style for the BMI category text
                   ),
                   Text(
-                    bmiResult,
-                    style: kBmiTextStyle,
+                    bmiResult, // Display the calculated BMI result
+                    style: kBmiTextStyle, // Style for the BMI result
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 20.0, left: 20.0),
+                    padding: EdgeInsets.only(right: 20.0, left: 20.0), // Add horizontal padding
                     child: Text(
-                      interpretation,
-                      style: kBodyTextStyle,
-                      textAlign: TextAlign.center,
+                      interpretation, // Display the interpretation of the BMI
+                      style: kBodyTextStyle, // Style for the BMI interpretation
+                      textAlign: TextAlign.center, // Center-align the interpretation text
                     ),
                   ),
                 ],
@@ -66,9 +65,9 @@ class ResultPage extends StatelessWidget {
             ),
           ),
           BottomContainer(
-            bottomContainerText: "RE-CALCULUATE",
+            bottomContainerText: "RE-CALCULATE", // Text for the button
             onPress: () {
-              Navigator.pop(context);
+              Navigator.pop(context); // Go back to the previous screen
             },
           ),
         ],

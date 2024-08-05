@@ -8,19 +8,23 @@ class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // Hides the debug banner in the top-right corner
+
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Color(0xFF222831),
+        scaffoldBackgroundColor: Color(0xFF222831), // Sets the background color of the scaffold
       ),
 
-      //Routes
-      home: InputPage(),
+      // Set the initial route for the application
+      home: InputPage(), // The home screen of the app
 
-      // initialRoute: '/',
-      // routes: {
-      //   '/' : (context) => InputPage(),
-      //   '/result' : (context) => ResultPage(),
-      // },
+      // Uncomment and define named routes if needed
+      /*
+      initialRoute: '/', // The initial route when the app starts
+      routes: {
+        '/': (context) => InputPage(), // Route for the InputPage
+        '/result': (context) => ResultPage(), // Route for the ResultPage
+      },
+      */
     );
   }
 }
