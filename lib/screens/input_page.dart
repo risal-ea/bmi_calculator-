@@ -1,10 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'icon_content.dart';
-import 'constants.dart';
+import '../components/reusable_card.dart';
+import '../components/icon_content.dart';
+import '../constants.dart';
+import '../components/bottom_container.dart';
 
 enum Gender {
   male,
@@ -47,7 +46,7 @@ class _InputPageState extends State<InputPage> {
                       selectedGender = Gender.male;
                     });
                   },
-                  cardChild: IconContent(
+                  cardChild: const IconContent(
                     icon: FontAwesomeIcons.mars,
                     label: "MALE",
                   ),
@@ -63,7 +62,7 @@ class _InputPageState extends State<InputPage> {
                       selectedGender = Gender.female;
                     });
                   },
-                  cardChild: IconContent(
+                  cardChild: const IconContent(
                     icon: FontAwesomeIcons.venus,
                     label: "FEMALE",
                   ),
@@ -83,7 +82,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Height",
                         style: kLabelTextStyle,
                       ),
@@ -96,7 +95,7 @@ class _InputPageState extends State<InputPage> {
                             height.toString(),
                             style: kNumberTextStyle,
                           ),
-                          Text(
+                          const Text(
                             "cm",
                             style: kLabelTextStyle,
                           )
@@ -140,7 +139,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Weight",
                         style: kLabelTextStyle,
                       ),
@@ -159,7 +158,7 @@ class _InputPageState extends State<InputPage> {
                               });
                             },
                           ),
-                          SizedBox(width: 14.0),
+                          const SizedBox(width: 14.0),
                           RoundIconButton(
                             FontAwesomeIcons.minus,
                             () {
@@ -181,7 +180,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Age",
                         style: kLabelTextStyle,
                       ),
@@ -197,7 +196,7 @@ class _InputPageState extends State<InputPage> {
                               age++;
                             });
                           }),
-                          SizedBox(
+                          const SizedBox(
                             width: 14.0,
                           ),
                           RoundIconButton(FontAwesomeIcons.minus, () {
@@ -214,23 +213,10 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          GestureDetector(
-            onTap: (){
-              Navigator.pushNamed(context, '/result');
-            },
-            child: Container(
-              alignment: Alignment.center,
-              child: Text("Calculate Your BMI!", style: TextStyle(
-                color: kCardColour,
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-              ),),
-              color: kBottomContainerColour,
-              margin: const EdgeInsets.only(top: 10),
-              height: kBottomContainerHeight,
-              width: double.infinity,
-            ),
-          ),
+           BottomContainer(
+            bottomContainerText: "CALCULATE",
+            onPress: (){Navigator.pushNamed(context, '/result');}
+          )
         ],
       ),
     );
@@ -253,13 +239,13 @@ class RoundIconButton extends StatelessWidget {
         icon,
         size: 25.0,
       ),
-      shape: CircleBorder(),
-      constraints: BoxConstraints.tightFor(
+      shape: const CircleBorder(),
+      constraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
       ),
       elevation: 12.0,
-      fillColor: Color(0xFF8D8E98),
+      fillColor: const Color(0xFF8D8E98),
       onPressed: onPressed,
     );
   }
